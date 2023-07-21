@@ -3,7 +3,8 @@ import  {Link,  useLocation} from "react-router-dom"
 import Profile from './Profile';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const {showAlert}=props;
 
     const [showProfileModal, setShowProfileModal] = useState(false);
   
@@ -40,13 +41,13 @@ const Navbar = () => {
                 </form>: 
                 <div style={{marginTop:"25px" }}>
                 <i className="fa-solid fa-user fa-2xl mx-3" style={{ height: '40px', cursor: 'pointer' }}
-                    onClick={handleProfileIconClick}></i> 
+                    onClick={handleProfileIconClick} ></i> 
         
                 </div>
                 }
                 </div>
             </div>
-            {showProfileModal && <Profile closeModal={() => setShowProfileModal(false)} />}
+            {showProfileModal && <Profile closeModal={() => setShowProfileModal(false)} showAlert={showAlert} />}
       </nav>
     
   )

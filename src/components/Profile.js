@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Profile = ({ closeModal }) => {
+const Profile = ({ closeModal, showAlert }) => {
   
 
     let Navigate =useNavigate();
@@ -10,7 +10,8 @@ const Profile = ({ closeModal }) => {
        localStorage.removeItem('token');
        closeModal();
 
-       Navigate('/login'); 
+       Navigate('/login');
+      showAlert("Logout Successfully","success") 
     }
     const [profile, setProfile] = useState({ name: '', email: '', _id: '' });
 
