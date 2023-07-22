@@ -16,7 +16,7 @@ const NoteState =(props)=>{
       const getNote=async()=>{
 
         // api Call
-
+        try{
         const response = await fetch(`${host}api/Notes/fetchallnotes`, {
          method: "GET", 
           
@@ -30,13 +30,19 @@ const NoteState =(props)=>{
        console.log(json)
        setNotes(json)
 
+      } catch (error) {
+        console.error("Fetch API error:", error);
+        // Handle the error appropriately, e.g., display an error message to the user
+        props.showAlert("Error occurred during Fetching Note due to server. Please try again later.", "danger");
+      }
+
      }
 
       //add a note
       const addNote=async(title, description, tag)=>{
 
          // api Call
-
+          try{
          const response = await fetch(`${host}api/Notes/addnote`, {
           method: "POST", 
            
@@ -50,6 +56,11 @@ const NoteState =(props)=>{
         
         console.log("adding a new notes")
         setNotes(notes.concat(note))
+      } catch (error) {
+        console.error("Fetch API error:", error);
+        // Handle the error appropriately, e.g., display an error message to the user
+        props.showAlert("Error occurred in Adding Note due to server. Please try again later.", "danger");
+      }
 
       }
       //Delete a note
@@ -58,6 +69,7 @@ const NoteState =(props)=>{
       const deleteNote =async(id)=>{
         // todo : api call
 
+        try{
         const response = await fetch(`${host}api/Notes/deletenote/${id}`, {
           method: "DELETE", 
            
@@ -72,6 +84,11 @@ const NoteState =(props)=>{
 
         const newNotes = notes.filter((note)=>{return note._id!==id})
         setNotes(newNotes);
+      } catch (error) {
+        console.error("Fetch API error:", error);
+        // Handle the error appropriately, e.g., display an error message to the user
+        props.showAlert("Error occurred in Deleting Note due to server. Please try again later.", "danger");
+      }
 
       }
       //edit a note
@@ -79,7 +96,7 @@ const NoteState =(props)=>{
       const editNote =async(id, title, description, tag)=>{
 
         // api Call
-
+          try{
         const response = await fetch(`${host}api/Notes/updatenote/${id}`, {
           method: 'PUT', 
            
@@ -107,6 +124,12 @@ const NoteState =(props)=>{
 
         }
         setNotes(newNotes);
+
+      } catch (error) {
+        console.error("Fetch API error:", error);
+        // Handle the error appropriately, e.g., display an error message to the user
+        props.showAlert("Error occurred in Updating Notes due to server. Please try again later.", "danger");
+      }
       }
 
     return(

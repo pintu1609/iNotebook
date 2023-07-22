@@ -35,7 +35,7 @@ const Login = (props) => {
   } catch (error) {
     console.error("Fetch API error:", error);
     // Handle the error appropriately, e.g., display an error message to the user
-    props.showAlert("Error occurred during login. Please try again later.", "danger");
+    props.showAlert("Error occurred during Login due to server. Please try again later.", "danger");
   }
   }
 

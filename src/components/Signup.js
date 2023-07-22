@@ -13,6 +13,8 @@ const Signup = (props) => {
     
 
     const {name, email, password}=credentials;
+
+    try{
     const response = await fetch("http://localhost/api/auth/createuser", {
       method: "POST", 
        
@@ -36,6 +38,12 @@ const Signup = (props) => {
       props.showAlert("invalid Crediential","danger" )
     }
 
+  } catch (error) {
+    console.error("Fetch API error:", error);
+    // Handle the error appropriately, e.g., display an error message to the user
+    props.showAlert("Error occurred during Signup due to server. Please try again later.", "danger");
+  }
+
   }
 
   const onChange=(e)=>{
@@ -48,7 +56,7 @@ const Signup = (props) => {
 
       <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
-          <input type="text" className="form-control" id="name"  name="name" aria-describedby="emailHelp" onChange={onChange} value={credentials.name} required/>
+          <input type="text" className="form-control" id="name"  name="name" aria-describedby="emailHelp" onChange={onChange} value={credentials.name} minLength={3} required/>
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email address</label>
