@@ -18,7 +18,7 @@ const Navbar = (props) => {
 
   return (
   
-      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" style={{height:"50px"}} >
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark"  >
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">iNotebook</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,8 +39,8 @@ const Navbar = (props) => {
                     <Link className="btn btn-primary mx-2" to="/signup" role="button">Signup</Link>
 
                 </form>: 
-                <div style={{marginTop:"25px" }}>
-                <i className="fa-solid fa-user fa-2xl mx-3" style={{ height: '40px', cursor: 'pointer' }}
+                <div >
+                <i className="fa-solid fa-user fa-2xl mx-3 d-flex" style={{ color:"#ffffff",height: '40px', cursor: 'pointer',justifyContent:'center', alignItems:'center' }}
                     onClick={handleProfileIconClick} ></i> 
         
                 </div>
@@ -53,4 +53,4 @@ const Navbar = (props) => {
   )
 }
 
-export default Navbar
+export default Navbar;

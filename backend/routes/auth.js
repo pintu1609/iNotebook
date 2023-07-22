@@ -55,15 +55,17 @@ router.post('/createuser',[
 }
 })
 
-// authenticate a user using post"/api/auth/login" no login requrie.
+//router 2 authenticate a user using post"/api/auth/login" no login requrie.
 router.post('/login',[
   body('email','Please Enter valid Email').isEmail(),
   body('password','Password cannot be blank').exists(),
 ] ,async(req, res)=>{
 
+  let success=false;
+
   const errors=validationResult(req);
     if(!errors.isEmpty()){
-      return res.status(400).json({errors:errors.array()});
+      return res.status(400).json({success, errors:errors.array()});
 
     }
     const{email, password}=req.body;
@@ -71,13 +73,13 @@ router.post('/login',[
     try {
       let user=await User.findOne({email});
       if(!user){
-        success=false;
+        // success=false;
         return res.status(400).json({success, error:"please try to login with correct credentials"})
       }
       const passwordCompare=  await bcrypt.compare(password, user.password);
       if(!passwordCompare){
-        success=false;
-        res.status(400).json({ success, error:"please try to login with correct credentials"})
+        // success=false;
+        return res.status(400).json({ success, error:"please try to login with correct credentials"})
       }
 
       const data ={

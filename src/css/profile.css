@@ -1,0 +1,4 @@
+/* profile.css */
+.btn-close {
+    --bs-btn-close-white-filter: invert(0) grayscale(100%) brightness(200%);
+  }
