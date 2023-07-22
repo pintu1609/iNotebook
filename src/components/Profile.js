@@ -50,34 +50,37 @@ const Profile = ({ closeModal, showAlert }) => {
   return (
     <div >
       
-      <div className="modal d-flex" tabIndex="-1" style={{display:"block", position:"absolute", top:"50%", left:"65%", transform:"translate{-50%, -50%}",width:"25rem",height:"25rem" }}>
+      <div className="modal d-flex"  tabIndex="-1" style={{display:"block", position:"absolute", top:"50%", left:"65%", transform:"translate{-65%, -50%}",width:"25rem",height:"25rem" }}>
         <div className="modal-dialog"  >
             <div className="modal-content" style={{background:"#fff",opacity:0.95 }}>
-            <div className="modal-header">
-                <h5 className="modal-title">Profile</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closeModal} ></button>
+              <div className="modal-header">
+                  <h5 className="modal-title">Profile</h5>
+                  {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closeModal} ></button> */}
               </div>
-              
-            <div className="modal-body">
-                
-            <div className="card" style={{width: "20rem"}}>
-                
-                <div className="card-body" style={{background:"#ffffff",border:"1px,black", color:"black",borderRadius:"5px"}}>
-        
-                    <p className="card-text">Name: {profile.name}</p>
-                    <p className="card-text">Email: {profile.email}</p>
-                    <p className="card-text">User_Id: {profile._id}</p>
-                    
-                </div>
-                </div>
 
-            <button onClick={handleLogout} className='btn btn-primary mx-2 my-2' > Logout</button>
-            </div>
+              <div className="modal-body">
+                
+                    <div className="card" style={{width: "20rem"}}>
+                      
+                      <div className="card-body" style={{background:"#ffffff",border:"1px,black", color:"black",borderRadius:"5px"}}>
+              
+                          <p className="card-text">Name: {profile.name}</p>
+                          <p className="card-text">Email: {profile.email}</p>
+                          <p className="card-text">User_Id: {profile._id}</p>
+                          
+                      </div>
+                    </div>
+               
+              </div>
+                <div class="modal-footer">
+                    <button type='button'  className="btn btn-secondary" onClick={closeModal}>Close</button>
+                    <button onClick={handleLogout} class="btn btn-primary">Logout</button>
+                </div>
             </div>
         </div>
-        </div>
+      </div>
         <div className="modal-backdrop show"></div>
-    </div>
+   </div>
    
   )
 }
