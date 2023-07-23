@@ -43,7 +43,7 @@ const Login = (props) => {
   }
   finally{
     const submitButton = e.target.querySelector('button[type="submit"]');
-      submitButton.textContent = 'Submit';
+      submitButton.textContent = 'Login';
   }
   }
 
@@ -67,7 +67,7 @@ const Login = (props) => {
             <input type="password" className="form-control" id="password" value={credentials.password} onChange={onChange}  name="password"/>
           </div>
           
-          <button type="submit" className="btn btn-primary" >Submit</button>
+          <button type="submit" className="btn btn-primary" >Login</button>
         </form>
     </div>
   )

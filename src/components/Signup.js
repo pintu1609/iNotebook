@@ -15,6 +15,8 @@ const Signup = (props) => {
     const {name, email, password}=credentials;
 
     try{
+
+     
     const response = await fetch("http://localhost/api/auth/createuser", {
       method: "POST", 
        
@@ -43,6 +45,7 @@ const Signup = (props) => {
     // Handle the error appropriately, e.g., display an error message to the user
     props.showAlert("Error occurred during Signup due to server. Please try again later.", "danger");
   }
+  
 
   }
 
@@ -72,7 +75,7 @@ const Signup = (props) => {
           <input type="password" className="form-control" id="cpassword" name='cpassword' onChange={onChange} value={credentials.cpassword}minLength={8} required/>
         </div>
         
-        <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">Submit</button>
+        <button type="submit" disabled={credentials.password !== credentials.cpassword} className="btn btn-primary">Signup</button>
       </form>
     </div>
   )
