@@ -4,17 +4,19 @@ import { useNavigate} from "react-router-dom"
 const Login = (props) => {
 
   const [credentials,setCredentials] = useState({email:"", password:""})
-  const [loading, setLoading] = useState(false);
-
   let navigate= useNavigate();
 
 
   const handleSumbit = async(e)=>{
     e.preventDefault();
-    setLoading(true);
+    
     
     try{
-    const response = await fetch("http://localhost/api/auth/login", {
+
+      const submitButton = e.target.querySelector('button[type="submit"]');
+      submitButton.textContent = 'Logging in...';
+
+      const response = await fetch("http://localhost/api/auth/login", {
       method: "POST", 
        
       headers: {
@@ -40,7 +42,8 @@ const Login = (props) => {
     props.showAlert("Error occurred during Login due to server. Please try again later.", "danger");
   }
   finally{
-    setLoading(false);
+    const submitButton = e.target.querySelector('button[type="submit"]');
+      submitButton.textContent = 'Submit';
   }
   }
 
