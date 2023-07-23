@@ -4,12 +4,14 @@ import { useNavigate} from "react-router-dom"
 const Login = (props) => {
 
   const [credentials,setCredentials] = useState({email:"", password:""})
+  const [loading, setLoading] = useState(false);
 
   let navigate= useNavigate();
 
 
   const handleSumbit = async(e)=>{
     e.preventDefault();
+    setLoading(true);
     
     try{
     const response = await fetch("http://localhost/api/auth/login", {
@@ -36,6 +38,9 @@ const Login = (props) => {
     console.error("Fetch API error:", error);
     // Handle the error appropriately, e.g., display an error message to the user
     props.showAlert("Error occurred during Login due to server. Please try again later.", "danger");
+  }
+  finally{
+    setLoading(false);
   }
   }
 
