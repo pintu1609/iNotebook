@@ -8,7 +8,7 @@ const User = require('./models/User');
 // const mongoURI= 'mongodb://127.0.0.1:27017/inotebook?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.1/'
 
 // global database
-const mongoURI='mongodb+srv://pintukumar808284:6ydVfd51Ul50qfLq@cluster0.rh9no4a.mongodb.net/inotebook'
+const mongoURI='mongodb+srv://pintukumar808284:ZyLWuB7bdBrOebml@cluster0.kqbqscz.mongodb.net/inotebook'
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
