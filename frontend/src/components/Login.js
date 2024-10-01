@@ -16,7 +16,7 @@ const Login = (props) => {
       const submitButton = e.target.querySelector('button[type="submit"]');
       submitButton.textContent = 'Logging in...';
 
-      const response = await fetch("pintu-inotebook-backend.vercel.app/api/auth/login", {
+      const response = await fetch("https://pintu-inotebook-backend.vercel.app/api/auth/login", {
       method: "POST", 
        
       headers: {
