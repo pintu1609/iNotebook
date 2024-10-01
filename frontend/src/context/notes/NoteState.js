@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const NoteState =(props)=>{
 
-  const host="https://pintu-inotebook-backend.vercel.app/"
+  const host="https://pintu-inotebook-backend.vercel.app"
 
     const notesInitial=[]
     
@@ -17,7 +17,7 @@ const NoteState =(props)=>{
 
         // api Call
         try{
-        const response = await fetch(`${host}api/Notes/fetchallnotes`, {
+        const response = await fetch(`${host}/api/Notes/fetchallnotes`, {
          method: "GET", 
           
          headers: {
@@ -43,7 +43,7 @@ const NoteState =(props)=>{
 
          // api Call
           try{
-         const response = await fetch(`${host}api/Notes/addnote`, {
+         const response = await fetch(`${host}/api/Notes/addnote`, {
           method: "POST", 
            
           headers: {
@@ -70,7 +70,7 @@ const NoteState =(props)=>{
         // todo : api call
 
         try{
-        const response = await fetch(`${host}api/Notes/deletenote/${id}`, {
+        const response = await fetch(`${host}/api/Notes/deletenote/${id}`, {
           method: "DELETE", 
            
           headers: {
@@ -97,7 +97,7 @@ const NoteState =(props)=>{
 
         // api Call
           try{
-        const response = await fetch(`${host}api/Notes/updatenote/${id}`, {
+        const response = await fetch(`${host}/api/Notes/updatenote/${id}`, {
           method: 'PUT', 
            
           headers: {

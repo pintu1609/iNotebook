@@ -17,7 +17,7 @@ const Signup = (props) => {
     try{
 
      
-    const response = await fetch("http://localhost/api/auth/createuser", {
+    const response = await fetch("https://pintu-inotebook-backend.vercel.app/api/auth/createuser", {
       method: "POST", 
        
       headers: {
