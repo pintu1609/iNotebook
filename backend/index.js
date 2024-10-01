@@ -7,7 +7,14 @@ var cors = require('cors')
 const port=80;
 const app = express();
 
-app.use(cors())
+app.use(cors(
+    {
+        origin:"https://pintu-inotebook-backend.vercel.app/",
+        methods:["GET","POST","PUT","DELETE"],
+        credentials:true
+
+    }
+))
 
 app.use(express.json())
 
