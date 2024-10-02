@@ -27,7 +27,7 @@ const Profile = ({ closeModal, showAlert }) => {
       // api Call
       try{
 
-      const response = await fetch("http://pintu-inotebook-backend.vercel.app/api/auth/getuser", {
+      const response = await fetch("https://inotebook-1-hafl.onrender.com/api/auth/getuser", {
        method: "POST", 
         
        headers: {
