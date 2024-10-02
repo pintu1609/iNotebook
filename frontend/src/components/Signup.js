@@ -17,7 +17,7 @@ const Signup = (props) => {
     try{
 
      
-    const response = await fetch("https://pintu-inotebook-backend.vercel.app/api/auth/createuser", {
+    const response = await fetch("https://inotebook-1-hafl.onrender.com/api/auth/createuser", {
       method: "POST", 
        
       headers: {

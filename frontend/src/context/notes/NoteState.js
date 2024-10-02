@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const NoteState =(props)=>{
 
-  const host="https://pintu-inotebook-backend.vercel.app"
+  const host="https://inotebook-1-hafl.onrender.com"
 
     const notesInitial=[]
     
